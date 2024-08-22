@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Eliminar Estudiante</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body>
+<h1>Eliminar Estudiante</h1>
+<hr />
+<h3>¿Está seguro que desea eliminar este registro?</h3>
+<div class="container">
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-2">ID</dt>
+        <dd class="col-sm-10" th:text="${estudiante.id}"></dd>
+
+        <dt class="col-sm-2">Nombre</dt>
+        <dd class="col-sm-10" th:text="${estudiante.nombre}"></dd>
+
+        <dt class="col-sm-2">Email</dt>
+        <dd class="col-sm-10" th:text="${estudiante.email}"></dd>
+
+        <dt class="col-sm-2">PIN</dt>
+        <dd class="col-sm-10" th:text="${estudiante.pin}"></dd>
+    </dl>
+    <form th:action="@{/Estudiantes/delete}" method="post">
+        <input type="hidden" name="id" th:value="${estudiante.id}">
+        <input type="submit" value="Eliminar" class="btn btn-danger"> |
+        <a th:href="@{/Estudiantes}" class="btn btn-secondary">Regresar</a>
+    </form>
+</div>
+</body>
+</html>
